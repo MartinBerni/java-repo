@@ -1,43 +1,36 @@
 package holamundo;
 
-import java.util.Scanner; //IMPORTACION AL TOCAR EL ERROR DEL SCANNER
+import javax.swing.JOptionPane;
+
 
 public class HolaMundo {
 
     public static void main(String[] args) {
-      //PARA LA ENTRADA DE DATOS Y ALMACENAMIENTO EN VAIRABLES DEBEMOS PONER:
-      Scanner entrada = new Scanner (System.in); //la variable entrada es el medio por el cual meto los datos
-      //AL PONERLO SOLO, SALTARA ERROR LO CUAL REQUEIRE QUE IMPORTEMOS EL JAVA.UTIL (TOCANDO EL ERROR SE COLOCA SOLO)
-      
-      float numero;
-      String nombre; 
-      char letra;
-      
-      System.out.print("Escribe un nuemro: "); 
-      numero = entrada.nextFloat(); //AL PONER EL ENTRADA NESESITA SABER EL TIPO DE ENTRADA, POR ESO SE COLOCA EL NEXTINT
-      
-      //SI NECESITO MOSTRAR UN int COLOCO .NEXTINT
-      //EN LOS FLOAT DEBO USAR SI O SI LA COMA, NO EL PUNTO
-      
-        System.out.println("El nuemero jaun es: "+numero);
         
-      //PROCEDIMIENTO PARA CADENA
-        System.out.print("Ingrese cadena: ");
-        nombre = entrada.next(); // EL .NEXT SOLO GUARDA LA PRIMERA PALABRA
-        System.out.println(nombre);
+        String cadena;
+        int numero;
+        double decimal;
+        char letra;
         
-        System.out.print("ingrese la cadena nuevamente: ");
-        nombre = entrada.nextLine(); // EL .NEXTLINE GUARDA TODA LA CADENA
-        System.out.println(nombre);
+        //JOptionPane nos da pantallas mas lindas
+        //Al poner JOptionPane se nos importa la galeria sola
         
-      //PROCEDIMINETO PARA UN CHAR
-      
-        System.out.println("ingrese la letra que quiera");
-        letra = entrada.next().charAt(0); //CON EL CHARAT LOGRAMOS QUE SE MUESTRE LA LETRA EN LA POSICION 0 ES DECIR LA QUE YO COLOQUE
-        System.out.println("La letra es: "+letra);
+        cadena = JOptionPane.showInputDialog("Digite la cadena: ");
+        numero = Integer.parseInt(JOptionPane.showInputDialog("digite el numero"));
+        //NO PUEDO GUARDAR UN STRING(JOP) EN UN INT(NUMERO)
+        // el Integer.parseInt() me permite que el JOP (el cual funciona unicamente con cadena) lo tranforme en un entero
+        letra = JOptionPane.showInputDialog("Digite la letra que quiere insertar :").charAt(0);
+        //EN EL CASO DEL CHAR AL PONER CHARAT (0) LIMITAMOS LA CADENA A UNA SOLA
+        decimal = Double.parseDouble(JOptionPane.showInputDialog("Digite el decimal: "));
+        //SIMILAR AL DEL NUMERO
+        //EL DECIMAL VA CON EL "."
         
         
-      
+        //PARA LA SALIDA ES CON MESSAGE
+        JOptionPane.showMessageDialog(null, "LA cadena fue: "+cadena);
+        JOptionPane.showMessageDialog(null, "El nuemero entero es: "+numero);
+        JOptionPane.showMessageDialog(null, "El char fue: "+letra);
+        JOptionPane.showMessageDialog(null, "Decimal es: "+decimal);
         
     }
 }
