@@ -1,36 +1,45 @@
+
+
 package holamundo;
 
-import javax.swing.JOptionPane;
-
+import java.util.Scanner;
 
 public class HolaMundo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
+        Scanner input = new Scanner(System.in);
         
-        String cadena;
-        int numero;
-        double decimal;
-        char letra;
+        float num1,num2,suma,resta,div,mult,resto;
         
-        //JOptionPane nos da pantallas mas lindas
-        //Al poner JOptionPane se nos importa la galeria sola
+        System.out.print("Dame el numero 1: ");
+        num1 = input.nextFloat();
+        System.out.print("Dame el numero 2: ");
+        num2 = input.nextFloat();
         
-        cadena = JOptionPane.showInputDialog("Digite la cadena: ");
-        numero = Integer.parseInt(JOptionPane.showInputDialog("digite el numero"));
-        //NO PUEDO GUARDAR UN STRING(JOP) EN UN INT(NUMERO)
-        // el Integer.parseInt() me permite que el JOP (el cual funciona unicamente con cadena) lo tranforme en un entero
-        letra = JOptionPane.showInputDialog("Digite la letra que quiere insertar :").charAt(0);
-        //EN EL CASO DEL CHAR AL PONER CHARAT (0) LIMITAMOS LA CADENA A UNA SOLA
-        decimal = Double.parseDouble(JOptionPane.showInputDialog("Digite el decimal: "));
-        //SIMILAR AL DEL NUMERO
-        //EL DECIMAL VA CON EL "."
+        suma = num1 + num2;
+        resta = num1 - num2;
+        mult = num1 * num2;
+        div = num1/num2;
+        resto = num1%num2;
+        
+        int numero = 3,y;
+        
+        numero += 5; //numero = numero + 5 es lo mismo
+        numero -= 5; //numero = numero - 5 es lo mismo
+        numero /= 5; //numero = numero / 5 es lo mismo
+        numero *= 5; //numero = numero * 5 es lo mismo
+        numero %= 5; //numero = numero % 5 es lo mismo
+        
+        numero++; //Inc
+        numero--; //Dec
         
         
-        //PARA LA SALIDA ES CON MESSAGE
-        JOptionPane.showMessageDialog(null, "LA cadena fue: "+cadena);
-        JOptionPane.showMessageDialog(null, "El nuemero entero es: "+numero);
-        JOptionPane.showMessageDialog(null, "El char fue: "+letra);
-        JOptionPane.showMessageDialog(null, "Decimal es: "+decimal);
+        numero=2;
+        y = numero++ ; // y valdra 2 y numero despues se incrementara y valdra 3
+        //Si usamos el operador como prefijo (++numero) primero se incrementa y luego se asigna, entonces y valdria 3
+        
+        /*numero=2;
+        y = numero-- mismo caso para esto */
         
     }
 }
