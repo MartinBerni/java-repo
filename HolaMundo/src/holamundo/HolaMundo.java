@@ -4,6 +4,8 @@ package holamundo;
 
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 
 
 
@@ -11,42 +13,45 @@ public class HolaMundo {
     public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
-    
         
+        // METODO BURBUJA EN ARREGLO 
+        // ORDENAMOS UNA TRAS OTRO EL QUE ESTAMOS VIENDO CON EL SIGUIENTE
+        // EJEMPLO
         
-       int [] edad = new int [4];
-       long [] dni = new long[4];
-       float [] estatura = new float[3];
-       double [] estarura = new double[5];
-       boolean [] estado = new boolean[4];
-       char [] sexo = new char [2];
-       String [] nombre = new String [2];
-       
-       //DAR VALORES
-       
-       edad[0]=15;
-       long [] calle = {2,3,8}; //DECLARAMOS E INICIALIZAMOS 
-       
-       //PARA RECORRER USAMOS FOR pero con int i = 0 ; i<6 ; i++ no ponemos ((<=))
-       
-       //PARA LLENAR UN ARREGLO SOLICITAMOS LA CANTIDAD DESEADA POR EL USUARIO DE ESPACIO
-       
+        int [] arreglo;
+        int narreglo, aux;
         
-       String [] nombres = {"Juan", "pedro", "Yo", "luz"};
-       
-        for (int i=0; i<nombres.length; i++) { //al poner (nombres.length) java identificara la longitud del arreglo
-            System.out.println(nombres[i]);
+        narreglo = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del arreglo: "));
+        
+        arreglo = new int [narreglo]; //ASIGNAMOS LA CANTIDAD DE ELEMENTOS 
+        
+        for (int i = 0; i < narreglo; i++) { //ARGANDO EL ARREGLO
+            System.out.print((i+1)+". ");
+            arreglo [i] = input.nextInt();
         }
-       
-        //for each
         
-        /* for ("TIPO DE DATO DEL ARREGLO" "INDICE" : "NOMBRE DEL ARREGLO"){
-            lo que quiero hacer con el subindice 
-        }
-        */
+        //METODO DE BURBUJA
         
-        for (String i:nombres)  {
-            System.out.println(i);
+        for (int i=0; i<(narreglo - 1); i++) { //COLOCAMOS EL -1 PORQUE CON UNA VUELTA MENOS ESTARA BIEN ORDENADO
+            for (int j=0; j<(narreglo - 1); j++) {//ACA ORDENAMOS
+                if (arreglo [j]>arreglo[j+1]){//SI NUMERO EN EL QUE ESTAMOS ES MAYOR HAY QUE CAMBIARLO
+                    aux = arreglo [j];
+                    arreglo [j] = arreglo [j+1];
+                    arreglo [j+1] = aux;
+                }
+            }
         }
+        
+        //MOSTRANDO EL ARREGLO
+        System.out.println("Arreglo creciente: ");
+        for (int i:arreglo) {
+            System.out.print(i+" - ");
+        }
+        System.out.println("");
+        System.out.println("Arreglo decreciente: ");
+        for (int i=(narreglo - 1); i>=0; i--) {
+            System.out.print(arreglo[i]+" - ");
+        }
+        
     }
 }
