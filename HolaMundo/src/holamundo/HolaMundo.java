@@ -14,45 +14,31 @@ public class HolaMundo {
         
         Scanner input = new Scanner(System.in);
         
-        // METODO INSERCION
-        // AL ENCONTRAR UN MENOR VA COMPARANDO CON LOS ANTERIORES SI ES MENOR Y LOS VA MOVIENDO
+        // METODO SECUENCIAL
+        // BUSCA NUMERO A NUMERO HASTA ENCONTRALO
         // EJEMPLO
         
-        int [] arreglo;
-        int narreglo, aux, pos;
+        int [] arreglo= {5, 3, 6, 8};
+        int num;
+        boolean flag =false;
         
-        narreglo = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del arreglo: "));
+        num = Integer.parseInt(JOptionPane.showInputDialog("Dame el numero a buscar: "));
         
-        arreglo = new int [narreglo]; //ASIGNAMOS LA CANTIDAD DE ELEMENTOS 
+        int i = 0;
         
-        for (int i = 0; i < narreglo; i++) { //ARGANDO EL ARREGLO
-            System.out.print((i+1)+". ");
-            arreglo [i] = input.nextInt();
-        }
-        
-        //METODO DE INSERCION
-        
-        for (int i=0; i<(narreglo - 1); i++) { //POS INDICA LA POSICION
-            pos = i;
-            aux = arreglo [i];
-            
-            while ((pos>0) && (arreglo[i-1] > aux)){ //POS > 0 PORQUE NO COMPARAMOS EL PRIMERO
-                arreglo [pos] = arreglo [pos-1];
-                pos--;
+        while (i<5 && (flag == false)){
+            if (arreglo [i] == num) {
+                flag = true; 
             }
-            arreglo [pos] = aux;
+            i++;
+            
+        System.out.println("jajaja");
         }
         
-        //MOSTRANDO EL ARREGLO
-        System.out.println("Arreglo creciente: ");
-        for (int i:arreglo) {
-            System.out.print(i+" / ");
+        if (flag == false) {
+            JOptionPane.showMessageDialog(null, "No se a encontrado el numero");
+        }else{
+            JOptionPane.showMessageDialog(null, "El numero se encontro y esta en la posicion: "+(i-1)+" (notacion de arreglo)");
         }
-        System.out.println("");
-        System.out.println("Arreglo decreciente: ");
-        for (int i=(narreglo - 1); i>=0; i--) {
-            System.out.print(arreglo[i]+" / ");
-        }
-        
     }
 }
