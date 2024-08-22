@@ -13,32 +13,42 @@ public class HolaMundo {
     public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
+        /*
+        int [][] matriz = {{1,2,3},{4,5,6},{7,8,9}};
+                        //fila      fila     fila
         
-        // METODO SECUENCIAL
-        // BUSCA NUMERO A NUMERO HASTA ENCONTRALO
-        // EJEMPLO
         
-        int [] arreglo= {5, 3, 6, 8};
-        int num;
-        boolean flag =false;
-        
-        num = Integer.parseInt(JOptionPane.showInputDialog("Dame el numero a buscar: "));
-        
-        int i = 0;
-        
-        while (i<5 && (flag == false)){
-            if (arreglo [i] == num) {
-                flag = true; 
+        //IMPRIMIENDO LA MATRIZ                
+                        
+        for (int i=0; i<3; i++) {//variamos las filas
+            for (int j=0; j<3; j++) {//variamos las columnas
+                System.out.print(matriz[i][j]);
             }
-            i++;
-            
-        System.out.println("jajaja");
+            System.out.println("");
+        }
+        */
+        //MATRIZ QUE COLOCA EL USUARIO
+        
+        int [][] mat;
+        int nFilas,nCol;
+        
+        nFilas = Integer.parseInt(JOptionPane.showInputDialog("Dame la cantidad de filas de la matriz: "));
+        nCol = Integer.parseInt(JOptionPane.showInputDialog("Dame la cantidad de columnas de la matriz: "));
+        
+        mat = new int [nFilas][nCol];
+        
+        for (int i=0; i<nFilas; i++) {
+            for (int j=0; j<nCol; j++) {
+                System.out.print("Digite el valor para la fila: "+(i+1)+" y la columna: "+(j+1)+": ");
+                mat [i][j] = input.nextInt();
+            }
         }
         
-        if (flag == false) {
-            JOptionPane.showMessageDialog(null, "No se a encontrado el numero");
-        }else{
-            JOptionPane.showMessageDialog(null, "El numero se encontro y esta en la posicion: "+(i-1)+" (notacion de arreglo)");
+        for (int i=0; i<nFilas; i++) {//variamos las filas
+            for (int j=0; j<nCol; j++) {//variamos las columnas
+                System.out.print(mat[i][j]+" - ");
+            }
+            System.out.println("");
         }
     }
 }
